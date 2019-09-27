@@ -30,10 +30,15 @@ $qry = "select * from `order` where oid=$oid";
 //echo $qry;
 $result = mysqli_query($conn,$qry);
 while($row = mysqli_fetch_assoc($result)){
-	$fids = $row['fids'];
-	foreach ($fids as $key => $value) {
-		echo $key;
-	}
+	$mark=explode(',', $row['fids']);
+   foreach($mark as $out) {
+      $fid = $out;
+      $qry1 = "select * from food where fid = $fid";
+      $result1 = mysqli_query($conn,$qry1);
+		while($row1 = mysqli_fetch_assoc($result1)){
+			echo $row1['fname']."<br>";
+		}
+   }
 	echo "<button><a href='../assets/took_order.php'>Order Collected</a></button>";
 }
 
