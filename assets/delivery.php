@@ -7,7 +7,9 @@ $name = $_SESSION['name'];
 $mobile = $_SESSION['mobile'];
 $dob = $_SESSION['dob'];
 $gender = $_SESSION['gender'];
+$password = $_SESSION['password'];
 $adhar_number = $_POST['adhar_number'];
+$_SESSION['aadhar'] = $adhar_number;
 $query = "select * from delivery where mobile = $mobile";
 if(mysqli_num_rows(mysqli_query($conn,$query))>0){
 	echo"mobile number alredy registered";
@@ -33,7 +35,7 @@ else{
        	echo $temp_name.$path_filename_ext;
        }
    }
-   $qry = "insert into delivery(`dname`,`mobile`,`gender`,`dob`,`aadhar`,`aadhar_img`) values('$name',$mobile,'$gender','$dob',$adhar_number,'$path_filename_ext')";
+   $qry = "insert into delivery(`dname`,`mobile`,`gender`,`password`,`dob`,`aadhar`,`aadhar_img`) values('$name',$mobile,'$gender','$password','$dob',$adhar_number,'$path_filename_ext')";
    
    //echo $qry ;
 	$result = mysqli_query($conn,$qry);

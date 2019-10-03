@@ -5,7 +5,7 @@ $_SESSION['name'] = $_POST['name'];
 $_SESSION['mobile'] = $_POST['mobile'];
 $_SESSION['gender'] = $_POST['gender'];
 $_SESSION['dob'] = $_POST['dob'];
-
+$_SESSION['password'] = $_POST['password'];
 ?>
 <!DOCTYPE html>
 <html>

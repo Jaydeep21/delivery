@@ -29,7 +29,10 @@ session_start();
 		<input type="radio" name="gender" value="female"> Female<br>
 		Date of Birth:
 		<input type="Date" name="dob">
-
+		password:
+		<input type="text" name="password">
+		Confirm Password:
+		<input type="text" name="cpassword">
 		<input type="submit" name="">
 	</form>
 </body>
