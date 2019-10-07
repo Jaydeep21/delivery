@@ -6,13 +6,14 @@ include('connection.php');
 $moblie = $_POST['moblie'];
 $password = $_POST['password'];
 
-$qry = "select * from delivery where moblie=$moblie and password=$password";
-
+$qry = "select * from delivery where mobile=$moblie and password='$password'";
+echo $qry;
 #echo $qry;
 $result = mysqli_query($conn,$qry);
 if(mysqli_num_rows($result)){
 	while ($row = mysqli_fetch_assoc($result)) {
 		# code...
+		$_SESSION['did'] = $row['did'];
 		$_SESSION['name'] = $row['dname'];
 		$_SESSION['mobile'] = $row['mobile'];
 		$_SESSION['gender'] = $row['gender'];
