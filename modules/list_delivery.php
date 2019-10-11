@@ -7,7 +7,7 @@ if(!isset($_SESSION['did'])){
 	echo "
 	<script type='text/javascript'>
 		alert('Please login');
-		document.location.href = 'signup0.php';
+		document.location.href = 'login.php';
 	</script>";
 }
 ?>
@@ -49,30 +49,5 @@ if(!isset($_SESSION['did'])){
 			echo "</ul>";
 		}
 	?>
-
-	<script type="text/javascript">
-		document.getElementById("demo").innerHTML = position.longitude;
-		document.getElementById("demo1").innerHTML = position.latitude;
-		function getLocation() {
-		  if (navigator.geolocation) {
-		    navigator.geolocation.getCurrentPosition(showPosition);
-		  } else { 
-		    x.innerHTML = "Geolocation is not supported by this browser.";
-		  }
-		}
-
-				function showPosition(position) {
-				 
-				  
-				  var lattitude = position.coords.latitude;
-					var longitude = position.coords.longitude;
-				}
-
-				function myFunction(){
-					document.getElementById("demo").innerHTML = "https://www.google.com/maps/dir/?api=1&origin="position:longitude","position:latitude"&destination=<php echo $longitude;?>,<?php echo $lattitude; ?>";
-				}
-
-				
-	</script>
 </body>
 </html>

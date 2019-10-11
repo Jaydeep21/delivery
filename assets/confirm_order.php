@@ -18,8 +18,22 @@ $qry = "update `order` set did=$did , status='Order taken accepted by delivery b
 
 $result = mysqli_query($conn,$qry);
 if($result){
-	header("location:../modules/route_to_chef.php");
+	$qry1 = "select * from `order` as o , chef as c where o.oid=$oid and c.chid=o.chid";
+	$result1 = mysqli_query($conn,$qry1);
+	$row1 = mysqli_fetch_assoc($result1);
+	$lattitude = $row1['clattitude'];
+	$longitude = $row1['clongitude'];
+?>
+<script type="text/javascript">
+	window.onload = function() {
+	   localStorage.setItem("longitude",<?php echo $lattitude ?>);
+	   localStorage.setItem("lattitude",<?php echo $longitude ?>);
+	   document.location.href = "../modules/route_to_chef.php";
 }
+
+</script>
+
+<?php }
 else{
 	echo "Something went wrong";
 }

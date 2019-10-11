@@ -16,7 +16,15 @@ if(!isset($_SESSION['oid'])){
 		document.location.href = '../modules/list_delivery.php';
 	</script>";	
 }
+?>
+<script type="text/javascript">
+	window.onload = function(){
+		alert(localStorage.getItem("longitude"));
+		alert(localStorage.getItem("lattitude"));
+	}
+</script>
 
+<?php
 $oid = $_SESSION['oid'];
 
 $qry = "select * from `order` AS o, chef AS ch where o.oid=$oid and ch.chid=o.chid";
